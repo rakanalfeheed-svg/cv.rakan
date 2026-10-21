@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RAKAN ALFEHAID - CV</title>
+
+  <style>
+    :root{
+      --bg:#0b1220;
+      --card: rgba(255,255,255,0.06);
+      --card2: rgba(255,255,255,0.08);
+      --text:#eaf0ff;
+      --muted: rgba(234,240,255,0.75);
+      --line: rgba(255,255,255,0.14);
+      --accent:#4f46e5;
+      --accent2:#06b6d4;
+      --green:#22c55e;
+      --shadow: 0 18px 45px rgba(0,0,0,0.35);
+      --radius:18px;
+    }
+
+    *{ box-sizing:border-box; }
+    body{
+      margin:0;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+      background:
+        radial-gradient(1100px 650px at 92% 8%, rgba(79,70,229,0.45), transparent 58%),
+        radial-gradient(900px 600px at 15% 20%, rgba(6,182,212,0.28), transparent 55%),
+        radial-gradient(900px 550px at 50% 110%, rgba(34,197,94,0.18), transparent 60%),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    .wrap{
+      max-width: 1100px;
+      margin: 28px auto;
+      padding: 0 16px 44px;
+    }
+
+    /* top */
+    .topbar{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:14px;
+      margin-bottom: 16px;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      padding:10px 14px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,0.04);
+      border-radius: 16px;
+      backdrop-filter: blur(8px);
+      min-height: 56px;
+    }
+    .brand .dot{
+      width: 12px; height: 12px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      box-shadow: 0 0 0 5px rgba(79,70,229,0.16);
+      flex: 0 0 auto;
+    }
+    .brand h1{
+      margin:0;
+      font-size: 16px;
+      letter-spacing: 0.2px;
+    }
+    .brand p{
+      margin: 2px 0 0;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    /* layout */
+    .hero{
+      display:grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 16px;
+      margin-top: 14px;
+    }
+    @media (max-width: 900px){
+      .hero{ grid-template-columns: 1fr; }
+    }
+
+    .card{
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 18px;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(10px);
+    }
+
+    /* profile side */
+    .profile{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:16px;
+      flex-wrap: wrap;
+    }
+
+    .avatar{
+      width: 110px;
+      height: 110px;
+      border-radius: 18px;
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,0.18);
+      background: rgba(255,255,255,0.06);
+      flex: 0 0 auto;
+    }
+    .avatar img{
+      width:100%; height:100%;
+      object-fit: cover;
+      display:block;
+    }
+
+    .title{
+      margin:0;
+      font-size: 28px;
+      letter-spacing: 0.2px;
+    }
+    .subtitle{
+      margin-top: 6px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .kpis{
+      display:flex;
+      gap:10px;
+      flex-wrap: wrap;
+      margin-top: 14px;
+    }
+    .kpi{
+      padding: 10px 12px;
+      border-radius: 14px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.12);
+      min-width: 170px;
+    }
+    .kpi b{
+      display:block;
+      font-size: 13px;
+    }
+    .kpi span{
+      display:block;
+      margin-top: 4px;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    /* grid inside main card */
+    .grid2{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 16px;
+    }
+    @media (max-width: 900px){
+      .grid2{ grid-template-columns: 1fr; }
+    }
+
+    .section h2{
+      margin: 0 0 12px;
+      font-size: 16px;
+      letter-spacing: 0.2px;
+    }
+
+    .tags{
+      display:flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .tag{
+      padding: 8px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.14);
+      background: rgba(255,255,255,0.05);
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .list{
+      display:flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .job{
+      padding: 14px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.10);
+      border-radius: 16px;
+    }
+
+    ul.bullets{
+      margin: 0;
+      padding: 0 18px 0 0;
+      list-style: disc;
+      color: var(--muted);
+      font-size: 13px;
+    }
+    ul.bullets li{ margin: 6px 0; }
+
+    .contactGrid{
+      display:grid;
+      gap: 12px;
+    }
+    .contactItem{
+      display:flex;
+      gap: 10px;
+      padding: 12px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.05);
+    }
+    .icon{
+      width: 36px; height: 36px;
+      display:grid;
+      place-items:center;
+      border-radius: 12px;
+      border:1px solid rgba(255,255,255,0.16);
+      background: linear-gradient(135deg, rgba(79,70,229,0.25), rgba(6,182,212,0.18));
+      flex: 0 0 auto;
+      font-size: 16px;
+    }
+    .contactItem .t{
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 2px;
+    }
+    .contactItem .v{
+      margin:0;
+      font-size: 14px;
+      word-break: break-word;
+    }
+
+    /* main bottom */
+    .grid2bottom{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+      margin-top: 16px;
+    }
+
+    .jobTop{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap: 12px;
+      margin-bottom: 8px;
+      flex-wrap: wrap;
+    }
+    .role{
+      font-weight: 800;
+      font-size: 13px;
+      margin:0;
+    }
+    .company{
+      margin: 4px 0 0;
+      color: var(--muted);
+      font-size: 12px;
+    }
+    .year{
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(79,70,229,0.35);
+      background: rgba(79,70,229,0.18);
+      font-size: 12px;
+      white-space: nowrap;
+      color: rgba(234,240,255,0.92);
+    }
+
+    footer{
+      text-align:center;
+      color: var(--muted);
+      font-size: 12px;
+      margin-top: 18px;
+      padding-top: 10px;
+    }
+
+    @media print{
+      body{ background:#fff; color:#111; }
+      .card, .job, .contactItem{ background:#fff !important; box-shadow:none; }
+      .tag{ border-color:#ddd; }
+      .icon{ background:#fff; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    
+    <div class="hero">
+      <!-- MAIN -->
+      <section class="card">
+        <div class="profile">
+          <div style="min-width: 260px;">
+            <h1 class="title" style="margin-bottom:0;">RAKAN ALFEHAID</h1>
+            <div class="subtitle">System Engineer • NGFW & Endpoint Protection • GRC / Compliance</div>
+
+            <div class="kpis">
+              <div class="kpi">
+                <b>خبرة سابقة</b>
+                <span>Thabat Construction-Support Specialist (2025–2026)</span>
+                <span>System Engineer (2024–2025) — Triple Check Group</span>
+                <span>Technical Support Specialist (2017–2023) — Critical Facilities</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="Image.PDF.jpeg" title="Image.PDF.jpeg">
+            <!-- غيّر avatar.jpg لو اسم ملف الصورة مختلف -->
+            <src="Image.PDF.jpeg">
+          </div>
+        </div>
+
+        <div class="grid2">
+          <div class="section">
+            <h2>الاهتمامات التقنية</h2>
+            <div class="tags">
+              <span class="tag">NGFW</span>
+              <span class="tag">SentinelOne (EPP)</span>
+              <span class="tag">Vulnerability Assessment</span>
+              <span class="tag">Threat Mitigation</span>
+              <span class="tag">NCA / SAMA</span>
+              <span class="tag">ISO 27001</span>
+              <span class="tag">Risk Management</span>
+            </div>
+          </div>
+
+          <div class="section">
+            <h2>المهارات الأساسية</h2>
+            <div class="list">
+              <div class="job" style="margin:0;">
+                <ul class="bullets">
+                  <li><b>Cybersecurity Ops</b>: Vulnerability Assessment, Threat Mitigation, Endpoint Protection (SentinelOne)</li>
+                  <li><b>Security Tools</b>: Nmap, Wireshark, Metasploit, NGFW, IPsec, SSL/TLS</li>
+                  <li><b>Operating Systems</b>: Windows, Linux (Red Hat)</li>
+                  <li><b>GRC</b>: NCA Regulations, SAMA Framework, ISO 27001 Standards</li>
+                  <li><b>Professional Skills</b>: Technical Reporting, MoM, Cross-Functional Collaboration, Time Management</li>
+                  <li><b>active directory</b>: User Management</li> </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ASIDE -->
+      <aside class="card">
+        <div class="section">
+          <h2>بيانات التواصل</h2>
+          <div class="contactGrid">
+            <div class="contactItem">
+              <div class="icon">☎</div>
+              <div>
+                <div class="t">Phone</div>
+                <p class="v">0564618344</p>
+              </div>
+            </div>
+<div class="contactItem">
+  <div class="icon">🔗</div>
+  <div>
+    <div class="t">GitHub</div>
+    <p class="v">
+      <a href="https://github.com/rakanalfeheed-svg"
+         target="_blank"
+         rel="noopener noreferrer"
+         style="color: inherit; text-decoration: none;"
+         dir="ltr">rakanalfeheed-svg</a>
+    </p>
+  </div>
+</div>
+<div class="contactItem">
+  <div class="icon">in</div>
+  <div>
+    <div class="t">LinkedIn</div>
+    <p class="v">
+      <a href="https://www.linkedin.com/in/rakan-alfehaid-9617a1330"
+         target="_blank"
+         rel="noopener noreferrer"
+         style="color: inherit; text-decoration: none;"
+         dir="ltr">Rakan Alfehaid</a>
+    </p>
+  </div>
+</div>
+            <div class="contactItem">
+              <div class="icon">✉</div>
+              <div>
+                <div class="t">Email</div>
+                <p class="v">rakanalfeheed@gmail.com</p>
+              </div>
+            </div>
+
+            
+
+          
+               
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="section" style="margin-top: 16px;">
+          <h2>التعليم</h2>
+          <div class="job">
+            <div class="jobTop">
+              <div>
+                <p class="role">Bachelor of Technology</p>
+                <p class="company">College of Technology, Riyadh</p>
+                <P Class="company">Cybersecurity ENGINEERING</P>
+              </div>
+              <div class="year">Graduated: 2024</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="section" style="margin-top: 16px;">
+          <h2>اللغات</h2>
+          <div class="job">
+            <ul class="bullets">
+              <li><b>Arabic</b>: Native / Bilingual Proficiency</li>
+              <li><b>English</b>: Professional Working Proficiency</li>
+            </ul>
+          </div>
+        </div>
+      </aside>
+    </div>
+
+    <div class="grid2bottom">
+      <section class="card">
+        <h2>الخبرات المهنية</h2>
+
+        <div class="list">
+          <div class="job">
+            <div class="jobTop">
+              <div>
+                <p class="role">System Engineer — Triple Check Group</p>
+                <p class="company">Next-Generation Firewall (NGFW) Managed Service System Engineer</p>
+              </div>
+          
+            </div>
+
+            <ul class="bullets">
+              <li><b>Documentation & Governance</b>: Authored standardized operational documentation (process guidelines, security policies, administrative forms).</li>
+              <li><b>Change Management</b>: Processed firewall change requests while ensuring adherence to security protocols and minimizing disruption.</li>
+              <li><b>Monitoring & Administration</b>: Monitored traffic and managed firewall health to identify and mitigate security anomalies.</li>
+            </ul>
+          </div>
+
+          <div class="job">
+            <div class="jobTop">
+              <div>
+                <p class="role">Endpoint Protection Solution Project — Joiner Engineer</p>
+                <p class="company">SentinelOne Endpoint Protection Platform (EPP)</p>
+              </div>
+          
+            </div>
+
+            <ul class="bullets">
+              <li><b>Environment Provisioning</b>: Prepared testing/staging environments for seamless evaluation and deployment.</li>
+              <li><b>EPP Deployment</b>: Collaborated on orchestration of SentinelOne EPP across enterprise nodes.</li>
+              <li><b>Configuration & Tuning</b>: Administered configurations, endpoint groups, alert thresholds, and optimized security policies.</li>
+            </ul>
+          </div>
+
+          <div class="job">
+            <div class="jobTop">
+              <div>
+                <p class="role">Compliance and Gap Assessment Projects — Joiner Specialist</p>
+                <p class="company">NCA / SAMA / ISO 27001</p>
+              </div>
+        
+            </div>
+
+            <ul class="bullets">
+              <li><b>Regulatory Alignment</b>: Authored compliance documentation and procedural evidence aligned with NCA, SAMA, ISO 27001.</li>
+              <li><b>Gap Analysis</b>: Maintained and updated gap assessment registries to remediate compliance variances.</li>
+              <li><b>Risk Management</b>: Collaborated on continuous administration and maintenance of the corporate risk register.</li>
+            </ul>
+          </div>
+
+          <div class="job">
+            <div class="jobTop">
+              <div>
+                <p class="role">Technical Support Specialist — Critical Facilities Engineering Consultancy</p>
+                <p class="company">Tier-1 Support & Infrastructure Maintenance</p>
+              </div>
+      
+           
+
+            <ul class="bullets">
+              <li><b>Incident Management</b>: Managed the IT helpdesk queue and resolved tickets within SLAs.</li>
+              <li><b>Infrastructure Maintenance</b>: Performed OS patches, firmware updates, and preventative maintenance.</li>
+              <li><b>Technical Troubleshooting</b>: Tier-1 diagnostics for connectivity, crashes, and hardware failures.</li>
+              <li><b>Provisioning & Deployment</b>: Managed installations, licensing, updates, and provisioned hardware (secure Wi‑Fi & printers).</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>الشهادات التدريب المتخصص</h2>
+        <div class="tags">
+          <span class="tag">Red Hat System Administration Training (RH124 & RH134)</span>
+          <span class="tag">Microsoft 365 Certified: Fundamentals</span>
+          <span class="tag">Google IT Support Professional Certificate</span>
+          <span class="tag">Six Sigma White Belt</span>
+          <span class="tag">Healthcare IT Support Specialization</span>
+          <sampan class="tag">PMP Certificate of Attendance</sampan>
+        </div>
+
+        
+      </section>
+    </div>
+
+    <footer>
+     
+    </footer>
+  </div>
+</body>
+</html>

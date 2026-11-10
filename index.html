@@ -6,23 +6,26 @@
   <title>RAKAN ALFEHAID - CV</title>
 
   <style>
-    :root{
-      --bg:#0b1220;
+    :root {
+      --bg: #0b1220;
       --card: rgba(255,255,255,0.06);
       --card2: rgba(255,255,255,0.08);
-      --text:#eaf0ff;
+      --text: #eaf0ff;
       --muted: rgba(234,240,255,0.75);
       --line: rgba(255,255,255,0.14);
-      --accent:#4f46e5;
-      --accent2:#06b6d4;
-      --green:#22c55e;
+      --accent: #4f46e5;
+      --accent2: #06b6d4;
+      --green: #22c55e;
       --shadow: 0 18px 45px rgba(0,0,0,0.35);
-      --radius:18px;
+      --radius: 18px;
     }
 
-    *{ box-sizing:border-box; }
-    body{
-      margin:0;
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
       font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
       background:
         radial-gradient(1100px 650px at 92% 8%, rgba(79,70,229,0.45), transparent 58%),
@@ -33,61 +36,73 @@
       line-height: 1.7;
     }
 
-    .wrap{
+    a {
+      color: inherit;
+    }
+
+    a:focus-visible,
+    button:focus-visible {
+      outline: 3px solid var(--accent2);
+      outline-offset: 4px;
+    }
+
+    .wrap {
       max-width: 1100px;
       margin: 28px auto;
       padding: 0 16px 44px;
     }
 
-    /* top */
-    .topbar{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:14px;
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
       margin-bottom: 16px;
     }
 
-    .brand{
-      display:flex;
-      align-items:center;
-      gap:12px;
-      padding:10px 14px;
-      border:1px solid var(--line);
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 14px;
+      border: 1px solid var(--line);
       background: rgba(255,255,255,0.04);
       border-radius: 16px;
       backdrop-filter: blur(8px);
       min-height: 56px;
     }
-    .brand .dot{
-      width: 12px; height: 12px; border-radius: 50%;
+
+    .brand .dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
       background: linear-gradient(135deg, var(--accent), var(--accent2));
       box-shadow: 0 0 0 5px rgba(79,70,229,0.16);
       flex: 0 0 auto;
     }
-    .brand h1{
-      margin:0;
+
+    .brand h1 {
+      margin: 0;
       font-size: 16px;
       letter-spacing: 0.2px;
     }
-    .brand p{
+
+    .brand p {
       margin: 2px 0 0;
       font-size: 12px;
       color: var(--muted);
     }
 
-    /* layout */
-    .hero{
-      display:grid;
-      grid-template-columns: 1.15fr 0.85fr;
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
       gap: 16px;
       margin-top: 14px;
-    }
-    @media (max-width: 900px){
-      .hero{ grid-template-columns: 1fr; }
+      align-items: start;
     }
 
-    .card{
+    .card {
+      min-width: 0;
       background: var(--card);
       border: 1px solid var(--line);
       border-radius: var(--radius);
@@ -96,178 +111,228 @@
       backdrop-filter: blur(10px);
     }
 
-    /* profile side */
-    .profile{
-      display:flex;
-      align-items:flex-start;
-      justify-content:space-between;
-      gap:16px;
+    .profile {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 16px;
       flex-wrap: wrap;
     }
 
-    .avatar{
+    .profileText {
+      min-width: 0;
+      flex: 1 1 260px;
+    }
+
+    .avatar {
       width: 110px;
       height: 110px;
       border-radius: 18px;
-      overflow:hidden;
-      border:1px solid rgba(255,255,255,0.18);
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.18);
       background: rgba(255,255,255,0.06);
       flex: 0 0 auto;
-    }
-    .avatar img{
-      width:100%; height:100%;
-      object-fit: cover;
-      display:block;
+      display: grid;
+      place-items: center;
     }
 
-    .title{
-      margin:0;
+    .avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .avatarInitials {
+      font-size: 30px;
+      font-weight: 800;
+      color: var(--text);
+      background: linear-gradient(135deg, rgba(79,70,229,0.25), rgba(6,182,212,0.18));
+    }
+
+    .title {
+      margin: 0;
       font-size: 28px;
       letter-spacing: 0.2px;
+      overflow-wrap: anywhere;
     }
-    .subtitle{
+
+    .subtitle {
       margin-top: 6px;
       color: var(--muted);
       font-size: 14px;
     }
 
-    .kpis{
-      display:flex;
-      gap:10px;
+    .kpis {
+      display: flex;
+      gap: 10px;
       flex-wrap: wrap;
       margin-top: 14px;
     }
-    .kpi{
+
+    .kpi {
       padding: 10px 12px;
       border-radius: 14px;
       background: rgba(255,255,255,0.05);
       border: 1px solid rgba(255,255,255,0.12);
-      min-width: 170px;
+      min-width: 0;
+      width: 100%;
     }
-    .kpi b{
-      display:block;
+
+    .kpi b {
+      display: block;
       font-size: 13px;
     }
-    .kpi span{
-      display:block;
+
+    .kpi span {
+      display: block;
       margin-top: 4px;
       font-size: 12px;
       color: var(--muted);
     }
 
-    /* grid inside main card */
-    .grid2{
-      display:grid;
-      grid-template-columns: 1fr 1fr;
+    .grid2 {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
       gap: 16px;
       margin-top: 16px;
     }
-    @media (max-width: 900px){
-      .grid2{ grid-template-columns: 1fr; }
-    }
 
-    .section h2{
+    .section h2,
+    .card > h2 {
       margin: 0 0 12px;
       font-size: 16px;
       letter-spacing: 0.2px;
     }
 
-    .tags{
-      display:flex;
+    .tags {
+      display: flex;
       flex-wrap: wrap;
       gap: 8px;
     }
-    .tag{
+
+    .tag {
       padding: 8px 10px;
       border-radius: 999px;
       border: 1px solid rgba(255,255,255,0.14);
       background: rgba(255,255,255,0.05);
       color: var(--muted);
       font-size: 12px;
+      overflow-wrap: anywhere;
     }
 
-    .list{
-      display:flex;
+    .list {
+      display: flex;
       flex-direction: column;
       gap: 12px;
     }
 
-    .job{
+    .job {
       padding: 14px;
       background: rgba(255,255,255,0.04);
       border: 1px solid rgba(255,255,255,0.10);
       border-radius: 16px;
+      min-width: 0;
     }
 
-    ul.bullets{
+    ul.bullets {
       margin: 0;
       padding: 0 18px 0 0;
       list-style: disc;
       color: var(--muted);
       font-size: 13px;
     }
-    ul.bullets li{ margin: 6px 0; }
 
-    .contactGrid{
-      display:grid;
+    ul.bullets li {
+      margin: 6px 0;
+      overflow-wrap: anywhere;
+    }
+
+    ul.bullets.plain {
+      list-style: none;
+      padding: 0;
+    }
+
+    .contactGrid {
+      display: grid;
       gap: 12px;
     }
-    .contactItem{
-      display:flex;
+
+    .contactItem {
+      display: flex;
       gap: 10px;
       padding: 12px;
       border-radius: 14px;
       border: 1px solid rgba(255,255,255,0.12);
       background: rgba(255,255,255,0.05);
+      min-width: 0;
     }
-    .icon{
-      width: 36px; height: 36px;
-      display:grid;
-      place-items:center;
+
+    .contactItem > div:last-child {
+      min-width: 0;
+    }
+
+    .icon {
+      width: 36px;
+      height: 36px;
+      display: grid;
+      place-items: center;
       border-radius: 12px;
-      border:1px solid rgba(255,255,255,0.16);
+      border: 1px solid rgba(255,255,255,0.16);
       background: linear-gradient(135deg, rgba(79,70,229,0.25), rgba(6,182,212,0.18));
       flex: 0 0 auto;
       font-size: 16px;
     }
-    .contactItem .t{
+
+    .contactItem .t {
       font-size: 12px;
       color: var(--muted);
       margin-bottom: 2px;
     }
-    .contactItem .v{
-      margin:0;
+
+    .contactItem .v {
+      margin: 0;
       font-size: 14px;
-      word-break: break-word;
+      overflow-wrap: anywhere;
     }
 
-    /* main bottom */
-    .grid2bottom{
-      display:grid;
-      grid-template-columns: 1fr;
+    .contactItem a {
+      text-decoration: none;
+    }
+
+    .contactItem a:hover {
+      color: var(--accent2);
+    }
+
+    .grid2bottom {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
       gap: 16px;
       margin-top: 16px;
     }
 
-    .jobTop{
-      display:flex;
-      align-items:flex-start;
-      justify-content:space-between;
+    .jobTop {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
       gap: 12px;
       margin-bottom: 8px;
       flex-wrap: wrap;
     }
-    .role{
+
+    .role {
       font-weight: 800;
       font-size: 13px;
-      margin:0;
+      margin: 0;
     }
-    .company{
+
+    .company {
       margin: 4px 0 0;
       color: var(--muted);
       font-size: 12px;
     }
-    .year{
+
+    .year {
       padding: 6px 10px;
       border-radius: 999px;
       border: 1px solid rgba(79,70,229,0.35);
@@ -277,33 +342,263 @@
       color: rgba(234,240,255,0.92);
     }
 
-    footer{
-      text-align:center;
+    /* Projects */
+    .sectionHeader {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 16px;
+    }
+
+    .sectionHeader h2 {
+      margin: 0;
+      font-size: 18px;
+    }
+
+    .sectionHeader p {
+      margin: 4px 0 0;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .projectsGrid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .projectCard {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      padding: 20px;
+      border-radius: 16px;
+      border: 1px solid var(--line);
+      background:
+        linear-gradient(135deg, rgba(79,70,229,0.12), rgba(6,182,212,0.05));
+      transition: transform 0.2s, border-color 0.2s;
+      min-width: 0;
+    }
+
+    .projectCard:hover {
+      transform: translateY(-3px);
+      border-color: rgba(6,182,212,0.5);
+    }
+
+    .projectHeading {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+    }
+
+    .projectIcon {
+      display: grid;
+      place-items: center;
+      width: 46px;
+      height: 46px;
+      border-radius: 14px;
+      font-size: 22px;
+      flex: 0 0 auto;
+      background: rgba(6,182,212,0.12);
+      border: 1px solid rgba(6,182,212,0.25);
+    }
+
+    .projectCard h3 {
+      margin: 0;
+      font-size: 17px;
+      overflow-wrap: anywhere;
+    }
+
+    .projectEnglish {
+      margin: 3px 0 0;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .projectDescription {
+      margin: 0;
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    .projectFeatures {
+      margin: 0;
+      padding-inline-start: 20px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .projectFeatures li {
+      margin: 4px 0;
+    }
+
+    .projectActions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: auto;
+      padding-top: 4px;
+    }
+
+    .projectButton {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 10px 15px;
+      border-radius: 12px;
+      border: 1px solid rgba(79,70,229,0.55);
+      background: rgba(79,70,229,0.3);
+      color: var(--text);
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 600;
+      transition: background 0.2s;
+    }
+
+    .projectButton:hover {
+      background: rgba(79,70,229,0.5);
+    }
+
+    .projectButton.secondary {
+      border-color: var(--line);
+      background: rgba(255,255,255,0.05);
+    }
+
+    .projectButton.secondary:hover {
+      background: rgba(255,255,255,0.1);
+    }
+
+    .projectNote {
+      margin: 0;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .projectPlaceholder {
+      border-style: dashed;
+      background: rgba(255,255,255,0.025);
+      justify-content: center;
+    }
+
+    .projectPlaceholder:hover {
+      transform: none;
+    }
+
+    footer {
+      text-align: center;
       color: var(--muted);
       font-size: 12px;
       margin-top: 18px;
       padding-top: 10px;
     }
 
-    @media print{
-      body{ background:#fff; color:#111; }
-      .card, .job, .contactItem{ background:#fff !important; box-shadow:none; }
-      .tag{ border-color:#ddd; }
-      .icon{ background:#fff; }
+    @media (max-width: 900px) {
+      .hero,
+      .grid2 {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .wrap {
+        margin-top: 16px;
+        padding-inline: 12px;
+      }
+
+      .card {
+        padding: 16px;
+      }
+
+      .title {
+        font-size: 24px;
+      }
+
+      .projectsGrid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .projectCard {
+        padding: 16px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .projectCard,
+      .projectButton {
+        transition: none;
+      }
+
+      .projectCard:hover {
+        transform: none;
+      }
+    }
+
+    @media print {
+      :root {
+        --text: #111;
+        --muted: #444;
+        --line: #ddd;
+      }
+
+      body {
+        background: #fff;
+        color: #111;
+      }
+
+      .card,
+      .job,
+      .contactItem,
+      .projectCard {
+        background: #fff !important;
+        box-shadow: none;
+        backdrop-filter: none;
+      }
+
+      .tag {
+        border-color: #ddd;
+      }
+
+      .icon,
+      .projectIcon,
+      .avatar {
+        background: #fff;
+        color: #111;
+      }
+
+      .projectButton {
+        background: #fff;
+        color: #111;
+        border-color: #ddd;
+      }
+
+      .projectPlaceholder,
+      .projectNote {
+        display: none;
+      }
+
+      .projectCard,
+      .job {
+        break-inside: avoid;
+      }
     }
   </style>
 </head>
 
 <body>
   <div class="wrap">
-    
     <div class="hero">
+
       <!-- MAIN -->
       <section class="card">
         <div class="profile">
-          <div style="min-width: 260px;">
-            <h1 class="title" style="margin-bottom:0;">RAKAN ALFEHAID</h1>
-            <div class="subtitle">System Engineer • NGFW • Endpoint Protection • GRC • Compliance</div>
+          <div class="profileText">
+            <h1 class="title">RAKAN ALFEHAID</h1>
+            <div class="subtitle">
+              System Engineer • NGFW • Endpoint Protection • GRC • Compliance
+            </div>
 
             <div class="kpis">
               <div class="kpi">
@@ -315,9 +610,15 @@
             </div>
           </div>
 
-          <div class="Image.PDF.jpeg" title="Image.PDF.jpeg">
-            <!-- غيّر avatar.jpg لو اسم ملف الصورة مختلف -->
-            <src="Image.PDF.jpeg">
+          <!--
+            مكان الصورة محفوظ.
+            عند وجود ملف Image.PDF.jpeg بجوار ملف HTML،
+            استبدل الحروف RA داخل هذا العنصر بالتالي:
+            <img src="Image.PDF.jpeg" alt="Rakan Alfehaid" />
+            الصور المحلية تحتاج رفع الملف مع الصفحة لتظهر على موقعك.
+          -->
+          <div class="avatar avatarInitials" aria-label="Rakan Alfehaid">
+            RA
           </div>
         </div>
 
@@ -338,17 +639,15 @@
           <div class="section">
             <h2>Key Skills</h2>
             <div class="list">
-              <div class="job" style="margin:0;">
-                <ul class="bullets"
-                  style="list-style: none;
-                  padding-inline-start: 0;">
+              <div class="job">
+                <ul class="bullets plain">
                   <li><b>Cybersecurity Ops</b>: Vulnerability Assessment, Threat Mitigation, Endpoint Protection (SentinelOne)</li>
                   <li><b>Security Tools</b>: Nmap, Wireshark, Metasploit, NGFW, IPsec, SSL/TLS</li>
                   <li><b>Operating Systems</b>: Windows, Linux (Red Hat)</li>
                   <li><b>GRC</b>: NCA Regulations, SAMA Framework, ISO 27001 Standards</li>
                   <li><b>Professional Skills</b>: Technical Reporting, MoM, Cross-Functional Collaboration, Time Management</li>
-                  <li><b>Active Directory</b>: User Management</li> </li>
-                   <li><b>Python (Basic)</b>: fundamentals variables, control flow (if/else), loops, and simple functions/projects.</li> </li>
+                  <li><b>Active Directory</b>: User Management</li>
+                  <li><b>Python (Basic)</b>: fundamentals variables, control flow (if/else), loops, and simple functions/projects.</li>
                 </ul>
               </div>
             </div>
@@ -360,66 +659,60 @@
       <aside class="card">
         <div class="section">
           <h2>Contact Information</h2>
+
           <div class="contactGrid">
             <div class="contactItem">
               <div class="icon">☎</div>
               <div>
                 <div class="t">Phone</div>
-                <p class="v">0564618344</p>
+                <p class="v" dir="ltr">0564618344</p>
               </div>
             </div>
-<div class="contactItem">
-  <div class="icon">🔗</div>
-  <div>
-    <div class="t">GitHub</div>
-    <p class="v">
-      <a href="https://github.com/rakanalfeheed-svg"
-         target="_blank"
-         rel="noopener noreferrer"
-         style="color: inherit; text-decoration: none;"
-         dir="ltr">rakanalfeheed-svg</a>
-    </p>
-  </div>
-</div>
 
-  <div class="contactItem">
-  <div class="icon">🛡️</div>
-  <div>
-    <div class="t">TryHackMe</div>
-    <p class="v">
-      <a href="https://tryhackme.com/p/rakanalfeheed?utm_campaign=social_share&utm_medium=social&utm_content=profile&cardVersion=f13ced63b1fb&utm_source=copy&sharerId=65c124620061e2d6901ad7bf"
-         target="_blank"
-         rel="noopener noreferrer"
-         style="color: inherit; text-decoration: none;"
-         dir="ltr">rakanalfeheed</a>
-    </p>
-  </div>
-</div>
-<div class="contactItem">
-  <div class="icon">in</div>
-  <div>
-    <div class="t">LinkedIn</div>
-    <p class="v">
-      <a href="https://www.linkedin.com/in/rakan-alfehaid-9617a1330"
-         target="_blank"
-         rel="noopener noreferrer"
-         style="color: inherit; text-decoration: none;"
-         dir="ltr">Rakan Alfehaid</a>
-    </p>
-  </div>
-</div>
+            <div class="contactItem">
+              <div class="icon">🔗</div>
+              <div>
+                <div class="t">GitHub</div>
+                <p class="v">
+                  <a href="https://github.com/rakanalfeheed-svg"
+                     target="_blank"
+                     rel="noopener noreferrer"
+                     dir="ltr">rakanalfeheed-svg</a>
+                </p>
+              </div>
+            </div>
+
+            <div class="contactItem">
+              <div class="icon">🛡️</div>
+              <div>
+                <div class="t">TryHackMe</div>
+                <p class="v">
+                  <a href="https://tryhackme.com/p/rakanalfeheed?utm_campaign=social_share&utm_medium=social&utm_content=profile&cardVersion=f13ced63b1fb&utm_source=copy&sharerId=65c124620061e2d6901ad7bf"
+                     target="_blank"
+                     rel="noopener noreferrer"
+                     dir="ltr">rakanalfeheed</a>
+                </p>
+              </div>
+            </div>
+
+            <div class="contactItem">
+              <div class="icon">in</div>
+              <div>
+                <div class="t">LinkedIn</div>
+                <p class="v">
+                  <a href="https://www.linkedin.com/in/rakan-alfehaid-9617a1330"
+                     target="_blank"
+                     rel="noopener noreferrer"
+                     dir="ltr">Rakan Alfehaid</a>
+                </p>
+              </div>
+            </div>
+
             <div class="contactItem">
               <div class="icon">✉</div>
               <div>
                 <div class="t">Email</div>
-                <p class="v">rakanalfeheed@gmail.com</p>
-              </div>
-            </div>
-
-            
-
-          
-               
+                <p class="v" dir="ltr">rakanalfeheed@gmail.com</p>
               </div>
             </div>
           </div>
@@ -432,7 +725,7 @@
               <div>
                 <p class="role">Bachelor of Technology</p>
                 <p class="company">College of Technology, Riyadh</p>
-                <P Class="company">Cybersecurity ENGINEERING</P>
+                <p class="company">Cybersecurity ENGINEERING</p>
               </div>
               <div class="year">Graduated: 2024</div>
             </div>
@@ -442,9 +735,7 @@
         <div class="section" style="margin-top: 16px;">
           <h2>Languages</h2>
           <div class="job">
-           <ul class="bullets"
-             style="list-style: none;
-             padding-inline-start: 0;">
+            <ul class="bullets plain">
               <li><b>Arabic</b>: Native / Bilingual Proficiency</li>
               <li><b>English</b>: Professional Working Proficiency</li>
             </ul>
@@ -454,6 +745,104 @@
     </div>
 
     <div class="grid2bottom">
+
+      <!-- NEW: PROJECTS -->
+      <section class="card" id="projects" aria-labelledby="projects-title">
+        <div class="sectionHeader">
+          <div>
+            <h2 id="projects-title">Projects — المشاريع</h2>
+            <p>مشاريعي التطبيقية والتقنيات المستخدمة في تطويرها.</p>
+          </div>
+
+          <a class="projectButton secondary"
+             href="https://github.com/rakanalfeheed-svg"
+             target="_blank"
+             rel="noopener noreferrer">
+            حسابي على GitHub ↗
+          </a>
+        </div>
+
+        <div class="projectsGrid">
+
+          <!-- PROJECT 1 -->
+          <article class="projectCard">
+            <div class="projectHeading">
+              <div class="projectIcon" aria-hidden="true">📦</div>
+              <div>
+                <h3>نظام إدارة المستودع</h3>
+                <p class="projectEnglish">
+                  Company Warehouse Management System
+                </p>
+              </div>
+            </div>
+
+            <p class="projectDescription">
+              مشروع تجريبي باستخدام Python وDjango لإدارة أصناف
+              المستودع ومتابعة المخزون من خلال واجهة عربية.
+            </p>
+
+            <ul class="projectFeatures">
+              <li>إضافة الأصناف وتعديل بياناتها.</li>
+              <li>البحث عن الأصناف وتصفيتها.</li>
+              <li>عرض كميات المخزون وحالاته.</li>
+              <li>إدارة المستخدمين والصلاحيات من لوحة Django.</li>
+            </ul>
+
+            <div class="tags" aria-label="التقنيات المستخدمة">
+              <span class="tag">Python</span>
+              <span class="tag">Django</span>
+              <span class="tag">Django Admin</span>
+              <span class="tag">Inventory Management</span>
+            </div>
+
+            <div class="projectActions">
+              <!--
+                استبدل PROJECT_GITHUB_URL برابط مستودع المشروع الحقيقي.
+                يفضل رابط المستودع الرئيسي، وليس مجلد migrations.
+              -->
+              <a class="projectButton"
+                 href="PROJECT_GITHUB_URL"
+                 data-project-link
+                 target="_blank"
+                 rel="noopener noreferrer">
+                عرض المشروع على GitHub ↗
+              </a>
+            </div>
+
+            <p class="projectNote" data-project-note>
+              رابط المشروع سيُضاف قريبًا.
+            </p>
+          </article>
+
+          <!--
+            مكان مشروع إضافي.
+            لإضافة مشروع جديد:
+            انسخ article الخاص بالمشروع الأول هنا،
+            ثم غيّر الاسم والوصف والتقنيات والرابط.
+          -->
+          <article class="projectCard projectPlaceholder">
+            <div class="projectHeading">
+              <div class="projectIcon" aria-hidden="true">＋</div>
+              <div>
+                <h3>مشاريع أخرى</h3>
+                <p class="projectEnglish">More Projects</p>
+              </div>
+            </div>
+
+            <p class="projectDescription">
+              مساحة لإضافة المشاريع القادمة، مع وصف مختصر
+              والتقنيات المستخدمة ورابط الكود أو العرض.
+            </p>
+
+            <div class="tags">
+              <span class="tag">قريبًا</span>
+            </div>
+          </article>
+
+        </div>
+      </section>
+
+      <!-- PROFESSIONAL EXPERIENCE -->
       <section class="card">
         <h2>Professional Experience</h2>
 
@@ -464,16 +853,12 @@
                 <p class="role">System Engineer — Triple Check Group</p>
                 <p class="company">Next-Generation Firewall (NGFW) Managed Service System Engineer</p>
               </div>
-          
             </div>
 
-            <ul class="bullets"
-              style="list-style: none;
-              padding-inline-start: 0;">
-              
-              <li><b>Documentation & Governance</b>: Authored standardized operational documentation (process guidelines, security policies, administrative forms).</li>
+            <ul class="bullets plain">
+              <li><b>Documentation &amp; Governance</b>: Authored standardized operational documentation (process guidelines, security policies, administrative forms).</li>
               <li><b>Change Management</b>: Processed firewall change requests while ensuring adherence to security protocols and minimizing disruption.</li>
-              <li><b>Monitoring & Administration</b>: Monitored traffic and managed firewall health to identify and mitigate security anomalies.</li>
+              <li><b>Monitoring &amp; Administration</b>: Monitored traffic and managed firewall health to identify and mitigate security anomalies.</li>
             </ul>
           </div>
 
@@ -483,16 +868,12 @@
                 <p class="role">Endpoint Protection Solution Project — Joiner Engineer</p>
                 <p class="company">SentinelOne Endpoint Protection Platform (EPP)</p>
               </div>
-          
             </div>
 
-           <ul class="bullets"
-              style="list-style: none;
-              padding-inline-start: 0;">
-             
+            <ul class="bullets plain">
               <li><b>Environment Provisioning</b>: Prepared testing/staging environments for seamless evaluation and deployment.</li>
               <li><b>EPP Deployment</b>: Collaborated on orchestration of SentinelOne EPP across enterprise nodes.</li>
-              <li><b>Configuration & Tuning</b>: Administered configurations, endpoint groups, alert thresholds, and optimized security policies.</li>
+              <li><b>Configuration &amp; Tuning</b>: Administered configurations, endpoint groups, alert thresholds, and optimized security policies.</li>
             </ul>
           </div>
 
@@ -502,13 +883,9 @@
                 <p class="role">Compliance and Gap Assessment Projects — Joiner Specialist</p>
                 <p class="company">NCA / SAMA / ISO 27001</p>
               </div>
-        
             </div>
 
-            <ul class="bullets"
-              style="list-style: none;
-              padding-inline-start: 0;">
-              
+            <ul class="bullets plain">
               <li><b>Regulatory Alignment</b>: Authored compliance documentation and procedural evidence aligned with NCA, SAMA, ISO 27001.</li>
               <li><b>Gap Analysis</b>: Maintained and updated gap assessment registries to remediate compliance variances.</li>
               <li><b>Risk Management</b>: Collaborated on continuous administration and maintenance of the corporate risk register.</li>
@@ -519,43 +896,53 @@
             <div class="jobTop">
               <div>
                 <p class="role">Technical Support Specialist — Critical Facilities Engineering Consultancy</p>
-                <p class="company">Tier-1 Support & Infrastructure Maintenance</p>
+                <p class="company">Tier-1 Support &amp; Infrastructure Maintenance</p>
               </div>
-      
-           
+            </div>
 
-            <ul class="bullets"
-              style="list-style: none;
-              padding-inline-start: 0;">
-              
+            <ul class="bullets plain">
               <li><b>Incident Management</b>: Managed the IT helpdesk queue and resolved tickets within SLAs.</li>
               <li><b>Infrastructure Maintenance</b>: Performed OS patches, firmware updates, and preventative maintenance.</li>
               <li><b>Technical Troubleshooting</b>: Tier-1 diagnostics for connectivity, crashes, and hardware failures.</li>
-              <li><b>Provisioning & Deployment</b>: Managed installations, licensing, updates, and provisioned hardware (secure Wi‑Fi & printers).</li>
+              <li><b>Provisioning &amp; Deployment</b>: Managed installations, licensing, updates, and provisioned hardware (secure Wi‑Fi &amp; printers).</li>
             </ul>
           </div>
         </div>
       </section>
 
+      <!-- TRAINING COURSES -->
       <section class="card">
-        <h2>Training Courses</h2> 
+        <h2>Training Courses</h2>
         <div class="tags">
-          <span class="tag">Red Hat System Administration Training (RH124 & RH134)</span>
+          <span class="tag">Red Hat System Administration Training (RH124 &amp; RH134)</span>
           <span class="tag">Microsoft 365 Certified: Fundamentals</span>
           <span class="tag">Google IT Support Professional Certificate</span>
           <span class="tag">Six Sigma White Belt</span>
           <span class="tag">Healthcare IT Support Specialization</span>
-          <sampan class="tag">PMP Certificate of Attendance</sampan>
-          <sampan class="tag">Advanced Excel</sampan>
+          <span class="tag">PMP Certificate of Attendance</span>
+          <span class="tag">Advanced Excel</span>
         </div>
-
-        
       </section>
     </div>
 
-    <footer>
-     
-    </footer>
+    <footer></footer>
   </div>
+
+  <script>
+    // إخفاء زر المشروع مؤقتًا إذا لم يُضف رابط حقيقي.
+    // بعد استبدال PROJECT_GITHUB_URL سيظهر الزر تلقائيًا.
+    document.querySelectorAll("[data-project-link]").forEach(function (link) {
+      var url = link.getAttribute("href");
+      var card = link.closest(".projectCard");
+      var note = card.querySelector("[data-project-note]");
+
+      if (!url || url === "PROJECT_GITHUB_URL") {
+        link.hidden = true;
+        link.style.display = "none";
+      } else if (note) {
+        note.hidden = true;
+      }
+    });
+  </script>
 </body>
 </html>
